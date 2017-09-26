@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LeaguePage } from '../pages/league/league';
 import { MatchPage } from '../pages/match/match';
 import { StandingsPage } from '../pages/standings/standings';
+import { NewLeaguePage } from '../pages/new-league/new-league';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { StandingsPage } from '../pages/standings/standings';
     LeaguePage,
     MatchPage,
     StandingsPage,
+    NewLeaguePage,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { StandingsPage } from '../pages/standings/standings';
     LeaguePage,
     MatchPage,
     StandingsPage,
+    NewLeaguePage,
   ],
   providers: [
     StatusBar,

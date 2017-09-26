@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>New League</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="newLeagueForm" (ngSubmit)="addNewLeague()">
+    
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Type of League</ion-label>
+      <ion-select formControlName="leagueType">
+        <ion-option *ngFor="let league of leagueTypes" value="{{ league.value }}">{{ league.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Number of Competitors</ion-label>
+      <ion-input type="number" formControlName="members"></ion-input>
+    </ion-item>
+    
+    <div formArrayName="membersName">
+      <div *ngFor="let member of newLeagueForm.controls.membersName.controls; let i = index">
+        <ion-item [formGroupName]="i">
+          <ion-label>Competitor #{{ i }}</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!newLeagueForm.valid">Start the League</button>
+    </div>
+
+  </form>
+</ion-content>
