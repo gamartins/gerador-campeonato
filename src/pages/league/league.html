@@ -5,5 +5,13 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card *ngFor="let league of leagueList">
+    <!-- <ion-card-header>{{ league.name }}</ion-card-header> -->
+    <ion-card-content>
+      <h1>{{ league.name }}</h1>
+      <h5>id: {{ league.$key }}</h5>
+      <h5>type: {{ league.leagueType }}</h5>
+    </ion-card-content>
+  </ion-card>
   <button ion-button block (click)="openNewLeaguePage()">Create new league!</button>
 </ion-content>
