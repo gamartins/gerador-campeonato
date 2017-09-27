@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { LeagueProvider } from '../../providers/league/league';
 
 @Component({
   selector: 'page-new-league',
@@ -12,7 +13,9 @@ export class NewLeaguePage {
     { name: 'Round-robin', value: 0 },
   ]
 
-  constructor(private navCtrl: NavController, private formBuilder: FormBuilder,) {
+  constructor(private navCtrl: NavController,
+              private formBuilder: FormBuilder,
+              private leagueProvider: LeagueProvider,) {
     this.initializeForm()
   }
 
@@ -39,7 +42,8 @@ export class NewLeaguePage {
   }
 
   addNewLeague() {
-    console.log(this.newLeagueForm.value)
+    this.leagueProvider.createLeague(this.newLeagueForm.value)
+    this.navCtrl.pop()
   }
 
 }

@@ -15,6 +15,7 @@ import { MatchPage } from '../pages/match/match';
 import { StandingsPage } from '../pages/standings/standings';
 import { NewLeaguePage } from '../pages/new-league/new-league';
 import { environment } from '../environments/environment';
+import { LeagueProvider } from '../providers/league/league';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { environment } from '../environments/environment';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    LeagueProvider,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
 export class AppModule { }

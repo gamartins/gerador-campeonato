@@ -15,8 +15,7 @@ export class MyApp {
 
   constructor(public platform: Platform,
               public statusBar: StatusBar,
-              public splashScreen: SplashScreen,
-              private db: AngularFireDatabase,) {
+              public splashScreen: SplashScreen,) {
   }
 
   ionViewDidLoad() {
