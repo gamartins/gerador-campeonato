@@ -5,8 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let league of leagueList">
-    <!-- <ion-card-header>{{ league.name }}</ion-card-header> -->
+  <ion-card *ngFor="let league of leagueList" (click)="openMatchPage(league.$key)">
     <ion-card-content>
       <h1>{{ league.name }}</h1>
       <h5>id: {{ league.$key }}</h5>
