@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -17,6 +18,7 @@ import { NewLeaguePage } from '../pages/new-league/new-league';
 import { environment } from '../environments/environment';
 import { LeagueProvider } from '../providers/league/league';
 import { LoginPage } from '../pages/login/login';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { LoginPage } from '../pages/login/login';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     IonicModule.forRoot(MyApp, {}, { links: [] })
   ],
   bootstrap: [IonicApp],
@@ -49,6 +52,7 @@ import { LoginPage } from '../pages/login/login';
     SplashScreen,
     LeagueProvider,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AuthProvider,
   ]
 })
 export class AppModule { }

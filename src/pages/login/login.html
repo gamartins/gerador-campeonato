@@ -2,15 +2,15 @@
   <form>
     <ion-item>
       <ion-label>E-mail</ion-label>
-      <ion-input type="text" name="email"></ion-input>
+      <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Password</ion-label>
-      <ion-input type="password" name="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
     </ion-item>
     <ion-grid class="sign">
         <ion-row>
-          <ion-col><button ion-button block >SignIn</button></ion-col>
+          <ion-col><button ion-button block (click)="signin()" >SignIn</button></ion-col>
           <ion-col><button ion-button block >SignUp</button></ion-col>
         </ion-row>
         <ion-row><ion-col text-center>OR SIGNIN WITH</ion-col></ion-row>
