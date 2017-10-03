@@ -16,10 +16,12 @@ import { StandingsPage } from '../pages/standings/standings';
 import { NewLeaguePage } from '../pages/new-league/new-league';
 import { environment } from '../environments/environment';
 import { LeagueProvider } from '../providers/league/league';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     TabsPage,
     LeaguePage,
     MatchPage,
@@ -35,6 +37,7 @@ import { LeagueProvider } from '../providers/league/league';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     TabsPage,
     LeaguePage,
     MatchPage,
