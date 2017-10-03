@@ -76,3 +76,11 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+// Removing scroll bar
+// --------------------------------------------------
+
+.scroll-bar-indicator
+{
+    display: none;
+}
