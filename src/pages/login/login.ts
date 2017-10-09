@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { TabsPage } from '../tabs/tabs';
+import { SignupPage } from '../signup/signup';
 
 @IonicPage()
 @Component({
@@ -28,6 +29,10 @@ export class LoginPage {
       this.presentToast(error.message)
       console.log(error)
     })
+  }
+
+  loadSignupPage(){
+    this.navCtrl.push(SignupPage)
   }
 
   loadTabsPageWhenLogged() {

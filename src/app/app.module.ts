@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { LeagueProvider } from '../providers/league/league';
 import { LoginPage } from '../pages/login/login';
 import { AuthProvider } from '../providers/auth/auth';
+import { SignupPage } from '../pages/signup/signup';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AuthProvider } from '../providers/auth/auth';
     MatchPage,
     StandingsPage,
     NewLeaguePage,
+    SignupPage,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import { AuthProvider } from '../providers/auth/auth';
     MatchPage,
     StandingsPage,
     NewLeaguePage,
+    SignupPage,
   ],
   providers: [
     StatusBar,
