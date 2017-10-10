@@ -1,3 +1,8 @@
 export class Match {
-    constructor(public home, public visitor, public round) {}
+    constructor(
+        public home,
+        public homeGoals,
+        public visitor,
+        public visitorGoals,
+        public round) {}
 }

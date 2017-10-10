@@ -25,7 +25,13 @@ export class League {
     private createMatch(home, visitor) {
         let round = 1
         while (this.haveMatchInRound(home, visitor, round)) round++
-        return { home: home, visitor: visitor, round: round}
+        return { 
+            home: home,
+            homeGoals: null,
+            visitor: visitor,
+            visitorGoals: null,
+            round: round
+        }
     }
 
     private haveMatchInRound(player1, player2, round) {

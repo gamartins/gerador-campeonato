@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { LeagueProvider } from '../../providers/league/league';
 import { Match } from '../../model/match';
 
@@ -15,7 +15,8 @@ export class MatchPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public leagueProvider: LeagueProvider) {
+    public leagueProvider: LeagueProvider,
+    public alertCtrl: AlertController) {
   }
 
   ionViewWillEnter() {
@@ -38,6 +39,38 @@ export class MatchPage {
     })
 
     return groupedMatches
+  }
+
+  showSetMatchAlert(match, indexRound, indexMatch) {
+    this.alertCtrl.create({
+      title: 'Set match',
+      inputs: [
+        { name: 'homeGoals', placeholder: 'HomePlayer Goals, i.e: 2', type: 'number' },
+        { name: 'awayGoals', placeholder: 'AwayPlayer Goals, i.e: 1', type: 'number' },
+      ],
+      buttons: [
+        { text: 'Cancel', role: 'cancel' },
+        { text: 'Save', handler: data => this.saveMatch(match, data, indexRound, indexMatch) }
+      ]
+    }).present()
+  }
+
+  saveMatch(match, data, indexRound, indexMatch){
+    this.matches[indexRound][indexMatch].homeGoals = data.homeGoals
+    this.matches[indexRound][indexMatch].awayGoals = data.awayGoals
+    this.leagueProvider.saveLeagueMatches(this.joinAllMatchs(this.matches))
+  }
+
+  private joinAllMatchs(matches){
+    let joinedMatches = []
+    
+    matches.forEach(round => {
+      round.forEach(match => {
+        joinedMatches.push(match)
+      });
+    });
+
+    return joinedMatches
   }
 
 }

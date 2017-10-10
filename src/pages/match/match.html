@@ -8,9 +8,10 @@
   <ion-list>
     <ion-item-group *ngFor="let round of matches; let i = index">
       <ion-item-divider color="light">Round {{i + 1}}</ion-item-divider>        
-      <button ion-item *ngFor="let match of round" text-center>
+      <button ion-item *ngFor="let match of round; let m = index"
+        text-center (click)="showSetMatchAlert(match, i, m)">
         <span class="home-player">{{ match.home.name }}</span>
-        <span class="scoreboard">4 - 4</span>
+        <span class="scoreboard" >{{ match.homeGoals}} - {{ match.awayGoals}}</span>
         <span class="away-player">{{ match.visitor.name }}</span>
       </button>
     </ion-item-group>
