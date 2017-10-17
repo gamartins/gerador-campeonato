@@ -36,7 +36,7 @@ export class LeagueProvider {
 
   public saveLeagueMatches(matches){
     let league = this.db.list(`/${this.authProvider.uid}/leagues/${this.selectedLeague}`)
-    league.set('matches', matches).catch(error => console.log(error))
+    league.update('matches', matches).catch(error => console.log(error))
   }
 
 }
